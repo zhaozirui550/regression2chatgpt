@@ -184,23 +184,30 @@ def _get_node_attr(node, direction='forward'):
     节点的属性
     '''
     node_type = _get_node_type(node)
+    # 设置字体
+    res = {'fontname': 'Menlo'}
     def _forward_attr():
         if node_type == 'param':
-            node_text = f'{{ grad=None | value={node.value: .2f} | {node.label}}}'
-            return dict(label=node_text, shape='record', fontsize='10', fillcolor='lightgreen', style='filled, bold')
+            node_text = f'{{ grad=None | value={node.value:.2f} | {node.label}}}'
+            res.update(
+                dict(label=node_text, shape='record', fontsize='10', fillcolor='lightgreen', style='filled, bold'))
+            return res
         elif node_type == 'computation':
-            node_text = f'{{ grad=None | value={node.value: .2f} | {node.op}}}'
-            return dict(label=node_text, shape='record', fontsize='10', fillcolor='gray94', style='filled, rounded')
+            node_text = f'{{ grad=None | value={node.value:.2f} | {node.op}}}'
+            res.update(
+                dict(label=node_text, shape='record', fontsize='10', fillcolor='gray94', style='filled, rounded'))
+            return res
         elif node_type == 'input':
             if node.label == '':
-                node_text = f'input={node.value: .2f}'
+                node_text = f'input={node.value:.2f}'
             else:
-                node_text = f'{node.label}={node.value: .2f}'
-            return dict(label=node_text, shape='oval', fontsize='10')
+                node_text = f'{node.label}={node.value:.2f}'
+            res.update(dict(label=node_text, shape='oval', fontsize='10'))
+            return res
     
     def _backward_attr():
         attr = _forward_attr()
-        attr['label'] = attr['label'].replace('grad=None', f'grad={node.grad: .2f}')
+        attr['label'] = attr['label'].replace('grad=None', f'grad={node.grad:.2f}')
         if not node.requires_grad:
             attr['style'] = 'dashed'
         # 为了作图美观
@@ -263,9 +270,9 @@ def _draw_edge(graph, n1, n2, direction='forward'):
             if grad is None:
                 graph.edge(uid2, uid1, arrowhead='none', color='deepskyblue')   
             elif grad == 0:
-                graph.edge(uid2, uid1, style='dashed', label=f'{grad: .2f}', color='deepskyblue')
-            else: 
-                graph.edge(uid2, uid1, label=f'{grad: .2f}', color='deepskyblue')
+                graph.edge(uid2, uid1, style='dashed', label=f'{grad:.2f}', color='deepskyblue', fontname='Menlo')
+            else:
+                graph.edge(uid2, uid1, label=f'{grad:.2f}', color='deepskyblue', fontname='Menlo')
         else:
             graph.edge(uid2, uid1, style='dashed', arrowhead='none', color='deepskyblue')
 
