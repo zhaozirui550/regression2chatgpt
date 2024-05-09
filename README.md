@@ -1,4 +1,4 @@
-# *The Dance of Probability: A Journey from Models to Language in Artificial Intelligence*
+# *Deconstructing Large Language Models: From Linear Regression to General Artificial Intelligence*
 
 This book is currently in the editing process and will be available soon.
 
