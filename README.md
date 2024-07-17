@@ -1,13 +1,8 @@
 # 《解构大语言模型：从线性回归到通用人工智能》配套代码
 
-**购买地址：**
+购买地址：[京东](https://item.jd.com/14596264.html)
 
-* [当当](https://product.dangdang.com/29718791.html)
-* [京东](https://item.jd.com/14596264.html)
-
-本书还配套免费的视频课程，观看地址为：
- 
- * [B站](https://space.bilibili.com/417265639/channel/collectiondetail?sid=3138772) 
+另外，本书还配套免费的视频课程：[B站](https://space.bilibili.com/417265639/channel/collectiondetail?sid=3138772) 
 
 如果大家对本书有赞赏、建议、批评之声，请在[豆瓣](https://book.douban.com/subject/36873291/)上留下你们的看法，再次谢谢大家。
 
